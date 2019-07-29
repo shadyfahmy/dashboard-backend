@@ -58,5 +58,34 @@ namespace WebApplication1.Controllers
         {
             return handler.GetTest1();
         }
+
+
+
+
+        [Route("api/DB/GetCairo")]
+        [HttpGet]
+        public DataTable GetCairo()
+        {
+            return handler.GetCairo();
+        }
+        [Route("api/DB/GetAlex")]
+        [HttpGet]
+        public DataTable getAlex()
+        {
+            return handler.GetAlex();
+        }
+        [Route("api/DB/GetMatrouh")]
+        [HttpGet]
+        public DataTable GetMatrouh()
+        {
+            return handler.GetMatrouh();
+        }
+        [Route("api/DB/GetGiza")]
+        [HttpGet]
+        public DataTable GetGiza()
+        {
+            return handler.GetGiza();
+        }
+
     }
 }
