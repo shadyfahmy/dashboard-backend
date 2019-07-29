@@ -62,11 +62,11 @@ namespace WebApplication1.Controllers
 
 
 
-        [Route("api/DB/GetCairo")]
+        [Route("api/DB/GetCairo/{Start}/{End}")]
         [HttpGet]
-        public DataTable GetCairo()
+        public DataTable GetCairo(string Start, string End)
         {
-            return handler.GetCairo();
+            return handler.GetCairo(Start, End);
         }
         [Route("api/DB/GetAlex")]
         [HttpGet]

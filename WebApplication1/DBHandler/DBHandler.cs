@@ -27,10 +27,11 @@ namespace WebApplication1
 
             return dbMan.ExecuteReader(query);
         }
-        public DataTable GetCairo()
+        public DataTable GetCairo(string mStart, string mEnd)
         {
-            string query = "SELECT Responses.Type,COUNT(Responses.OID) as 'Number'  FROM dbo.Responses where Responses.DispatchGroup LIKE '%CA%'OR Responses.DispatchGroup LIKE '%شمال القاهرة%'  group by Responses.Type ";
-
+            string query = "SELECT Responses.Type,COUNT(Responses.OID) as 'Number'  FROM dbo.Responses where    CONVERT (nvarchar(10),dbo.Responses.CreationTime ,120)  >= '" + mStart +
+                "'AND CONVERT(nvarchar(10),dbo.Responses.CreationTime  ,120)  < = '" + mEnd +
+                "'  AND   (Responses.DispatchGroup LIKE '%CA%'OR Responses.DispatchGroup LIKE '%شمال القاهرة%' ) group by Responses.Type ";
             return dbMan.ExecuteReader(query);
         }
         public DataTable GetGiza()
